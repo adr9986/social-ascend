@@ -10,16 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg: #030303;
       --bg2: #090908;
       --card: #11110f;
+      --card2: #171613;
       --border: rgba(255,255,255,0.09);
       --gold: #d8ad4f;
       --gold-light: #f0d27d;
@@ -31,9 +28,7 @@
       --max: 1160px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -59,20 +54,9 @@
       mask-image: linear-gradient(to bottom, black, transparent 70%);
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
 
     nav {
       position: fixed;
@@ -95,44 +79,34 @@
     .nav-logo {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       color: var(--text);
       font-size: 1rem;
       font-weight: 800;
       letter-spacing: 0;
     }
-
-    .nav-logo::before {
-      content: "SA";
-      display: grid;
+    .brand-logo {
       width: 34px;
       height: 34px;
-      place-items: center;
-      color: #100d07;
-      font-size: 0.72rem;
-      background: var(--gradient);
-      border-radius: 7px;
-      box-shadow: 0 0 28px rgba(216,173,79,0.23);
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 20px rgba(216,173,79,0.18));
     }
-
-    .nav-links {
-      display: flex;
+    .footer-logo-wrap {
+      display: inline-flex;
       align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 600;
+      gap: 10px;
     }
-
-    .nav-links a,
-    .nav-cta {
-      transition: color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    .footer-logo-image {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 16px rgba(216,173,79,0.14));
     }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+    .nav-links a, .nav-cta { transition: color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+    .nav-links a:hover { color: var(--text); }
     .nav-cta {
       background: var(--gradient);
       color: #100d07;
@@ -141,17 +115,9 @@
       padding: 10px 16px;
       border-radius: var(--radius);
     }
+    .nav-cta:hover, .email-form button:hover, .early-link:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(216,173,79,0.16); }
 
-    .nav-cta:hover,
-    .email-form button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(216,173,79,0.16);
-    }
-
-    .shell {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-    }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
 
     .hero {
       min-height: 88svh;
@@ -162,11 +128,7 @@
       padding: 122px 0 72px;
       position: relative;
     }
-
-    .hero-copy {
-      max-width: 720px;
-    }
-
+    .hero-copy { max-width: 720px; }
     .eyebrow {
       color: var(--gold-light);
       font-size: 0.78rem;
@@ -175,34 +137,16 @@
       text-transform: uppercase;
       margin-bottom: 18px;
     }
-
-    h1,
-    h2,
-    h3,
-    p {
-      overflow-wrap: anywhere;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-
-    .hero h1 {
-      font-size: 5.9rem;
-      font-weight: 900;
-      max-width: 780px;
-      margin-bottom: 24px;
-    }
-
-    .hero-sub {
-      max-width: 640px;
-      color: var(--muted2);
-      font-size: 1.22rem;
-      line-height: 1.7;
-      margin-bottom: 32px;
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+    h1, h2, h3 { line-height: 1.02; letter-spacing: 0; }
+    .hero h1 { font-size: 5.9rem; font-weight: 900; max-width: 780px; margin-bottom: 24px; }
+    .hero-sub { max-width: 640px; color: var(--muted2); font-size: 1.22rem; line-height: 1.7; margin-bottom: 32px; }
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      width: min(100%, 560px);
     }
 
     .email-form {
@@ -216,7 +160,6 @@
       border-radius: var(--radius);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
     }
-
     .email-form input[type="email"] {
       flex: 1;
       min-width: 0;
@@ -227,11 +170,7 @@
       border: 0;
       outline: 0;
     }
-
-    .email-form input[type="email"]::placeholder {
-      color: rgba(247,243,234,0.42);
-    }
-
+    .email-form input[type="email"]::placeholder { color: rgba(247,243,234,0.42); }
     .email-form button {
       min-height: 52px;
       padding: 0 22px;
@@ -244,14 +183,7 @@
       white-space: nowrap;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-
-    .form-note {
-      min-height: 22px;
-      margin-top: 12px;
-      color: rgba(247,243,234,0.5);
-      font-size: 0.9rem;
-    }
-
+    .form-note { min-height: 22px; margin-top: 12px; color: rgba(247,243,234,0.5); font-size: 0.9rem; }
     .form-success {
       display: none;
       width: min(100%, 520px);
@@ -263,13 +195,7 @@
       font-weight: 700;
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 610px;
-      display: grid;
-      place-items: center;
-    }
-
+    .hero-visual { position: relative; min-height: 610px; display: grid; place-items: center; }
     .phone-frame {
       position: relative;
       width: min(82vw, 390px);
@@ -279,7 +205,6 @@
       border-radius: 38px;
       box-shadow: 0 28px 90px rgba(0,0,0,0.58), 0 0 80px rgba(216,173,79,0.13);
     }
-
     .phone-frame::after {
       content: "";
       position: absolute;
@@ -288,67 +213,14 @@
       border-radius: inherit;
       pointer-events: none;
     }
+    .hero-phone { width: 100%; height: auto; }
 
-    .hero-phone {
-      width: 100%;
-      height: auto;
-    }
-
-    .section {
-      padding: 104px 0;
-    }
-
-    .section-header {
-      max-width: 720px;
-      margin-bottom: 48px;
-    }
-
-    .section-header.center {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-title {
-      font-size: 4.25rem;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-size: 1.13rem;
-      line-height: 1.75;
-    }
-
-    .positioning-wrap {
-      border-block: 1px solid rgba(255,255,255,0.075);
-      background: linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.016));
-    }
-
-    .positioning {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 52px;
-      align-items: center;
-    }
-
-    .positioning h2 {
-      font-size: 4.1rem;
-      font-weight: 900;
-    }
-
-    .positioning-copy {
-      display: grid;
-      gap: 18px;
-      color: var(--muted2);
-      font-size: 1.12rem;
-      line-height: 1.78;
-    }
-
-    .positioning-copy strong {
-      color: var(--text);
-    }
+    .section { padding: 104px 0; }
+    .section-header { max-width: 720px; margin-bottom: 48px; }
+    .section-header.center { text-align: center; margin-left: auto; margin-right: auto; }
+    .section-title { font-size: 4.25rem; font-weight: 900; margin-bottom: 18px; }
+    .section-sub { color: var(--muted); font-size: 1.13rem; line-height: 1.75; }
+    .section-sub strong { color: var(--text); font-weight: 800; }
 
     .value-panel {
       display: grid;
@@ -361,50 +233,19 @@
       border-radius: var(--radius);
       box-shadow: 0 24px 80px rgba(0,0,0,0.34);
     }
-
-    .value-panel h2 {
-      font-size: 3.7rem;
-      font-weight: 900;
-      max-width: 760px;
-    }
-
-    .value-list {
-      display: grid;
-      gap: 12px;
-    }
-
+    .value-panel h2 { font-size: 3.7rem; font-weight: 900; max-width: 760px; }
+    .value-list { display: grid; gap: 12px; }
     .value-item {
       padding: 18px;
       background: rgba(255,255,255,0.045);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
     }
+    .value-item h3 { color: var(--gold-light); font-size: 0.86rem; text-transform: uppercase; font-weight: 900; margin-bottom: 8px; }
+    .value-item p { color: var(--muted); font-size: 0.96rem; line-height: 1.65; }
 
-    .value-item h3 {
-      color: var(--gold-light);
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .value-item p {
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.65;
-    }
-
-    .features-wrap {
-      background: var(--bg2);
-      border-block: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 18px;
-    }
-
+    .features-wrap { background: var(--bg2); border-block: 1px solid rgba(255,255,255,0.07); }
+    .features-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
     .feature-card {
       display: flex;
       flex-direction: column;
@@ -415,79 +256,24 @@
       overflow: hidden;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
+    .feature-card.primary { background: linear-gradient(180deg, rgba(216,173,79,0.12), rgba(255,255,255,0.026)), var(--card); border-color: rgba(216,173,79,0.24); }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(216,173,79,0.34); }
+    .feature-img-wrap { height: 410px; overflow: hidden; background: #050505; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .feature-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0.94; }
+    .feature-body { padding: 26px; }
+    .feature-kicker { display: block; color: var(--gold-light); font-size: 0.76rem; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; }
+    .feature-body h3 { font-size: 1.65rem; font-weight: 900; margin-bottom: 12px; }
+    .feature-body p { color: var(--muted); font-size: 0.98rem; line-height: 1.72; }
 
-    .feature-card.primary {
-      background: linear-gradient(180deg, rgba(216,173,79,0.12), rgba(255,255,255,0.026)), var(--card);
-      border-color: rgba(216,173,79,0.24);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(216,173,79,0.34);
-    }
-
-    .feature-img-wrap {
-      height: 410px;
-      overflow: hidden;
-      background: #050505;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .feature-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      opacity: 0.94;
-    }
-
-    .feature-body {
-      padding: 26px;
-    }
-
-    .feature-kicker {
-      display: block;
-      color: var(--gold-light);
-      font-size: 0.76rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .feature-body h3 {
-      font-size: 1.65rem;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    .feature-body p {
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.72;
-    }
-
-    .audience-wrap {
-      background: var(--bg);
-    }
-
+    .audience-wrap { background: var(--bg); }
     .audience {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
       gap: 56px;
       align-items: start;
     }
-
-    .audience h2 {
-      font-size: 3.65rem;
-      font-weight: 900;
-    }
-
-    .audience-list {
-      list-style: none;
-      display: grid;
-      gap: 0;
-    }
-
+    .audience h2 { font-size: 3.65rem; font-weight: 900; }
+    .audience-list { list-style: none; display: grid; gap: 0; }
     .audience-list li {
       display: grid;
       grid-template-columns: 12px 1fr;
@@ -500,7 +286,6 @@
       font-weight: 800;
       line-height: 1.24;
     }
-
     .audience-list li::before {
       content: "";
       width: 9px;
@@ -510,42 +295,41 @@
       box-shadow: 0 0 24px rgba(216,173,79,0.8);
     }
 
-    .how-wrap {
-      background: var(--bg2);
-      border-block: 1px solid rgba(255,255,255,0.07);
+    .rank-wrap {
+      padding: 110px 0 98px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(216,173,79,0.12), transparent 38%),
+        linear-gradient(180deg, #060605 0%, #090908 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .rank-inner {
+      text-align: center;
+    }
+    .rank-inner .section-header {
+      max-width: 760px;
+      margin: 0 auto 26px;
+    }
+    .rank-image {
+      display: block;
+      width: 100%;
+      max-width: 920px;
+      margin: 40px auto 26px;
+      filter: drop-shadow(0 24px 60px rgba(0,0,0,0.42)) drop-shadow(0 0 34px rgba(216,173,79,0.12));
+    }
+    .rank-support {
+      color: var(--muted2);
+      font-size: 1.02rem;
+      font-weight: 600;
     }
 
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
-
-    .how-step {
-      min-height: 190px;
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.024)), var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-
-    .how-step-num {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      place-items: center;
-      color: #100d07;
-      background: var(--gradient);
-      border-radius: 7px;
-      font-weight: 900;
-      margin-bottom: 64px;
-    }
-
-    .how-step-text {
-      color: var(--text);
-      font-size: 1.16rem;
-      font-weight: 850;
-      line-height: 1.2;
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .cta-wrap {
@@ -554,7 +338,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .cta-wrap::before {
       content: "";
       position: absolute;
@@ -562,30 +345,199 @@
       background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(216,173,79,0.10) 0%, transparent 66%);
       pointer-events: none;
     }
-
-    .cta-inner {
-      position: relative;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .cta-wrap h2 {
-      font-size: 4.15rem;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-
-    .cta-wrap > .cta-inner > p {
-      color: var(--muted2);
-      font-size: 1.13rem;
-      margin-bottom: 34px;
-    }
-
-    .cta-form-wrap {
+    .cta-inner { position: relative; max-width: 760px; margin: 0 auto; }
+    .cta-wrap h2 { font-size: 4.15rem; font-weight: 900; margin-bottom: 16px; }
+    .cta-wrap > .cta-inner > p { color: var(--muted2); font-size: 1.13rem; margin-bottom: 34px; }
+    .cta-actions {
       display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.98rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-1px);
+    }
+    .cta-button-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .cta-button-secondary:hover,
+    .cta-button-secondary:focus-visible {
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.24);
+    }
+    .cta-button-primary {
+      color: #100d07;
+      background: var(--gradient);
+      border-color: rgba(240,210,125,0.34);
+      box-shadow: 0 18px 34px rgba(216,173,79,0.18);
+    }
+    .cta-button-primary:hover,
+    .cta-button-primary:focus-visible {
+      box-shadow: 0 20px 40px rgba(216,173,79,0.26);
+    }
+    .cta-form-wrap {
+      display: none;
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      margin-top: 26px;
+    }
+    .cta-form-wrap.is-visible {
+      display: flex;
+    }
+    .cta-meta {
+      color: rgba(247,243,234,0.54);
+      font-size: 0.92rem;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(3,3,3,0.74);
+      backdrop-filter: blur(16px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.24s ease, visibility 0.24s ease;
+    }
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .modal {
+      width: min(100%, 560px);
+      max-height: min(92vh, 760px);
+      overflow: auto;
+      padding: 30px 28px 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)), var(--card2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      box-shadow: 0 36px 120px rgba(0,0,0,0.54), 0 0 90px rgba(216,173,79,0.12);
+      transform: scale(0.96) translateY(10px);
+      transition: transform 0.24s ease;
+    }
+    .modal-overlay.is-open .modal {
+      transform: scale(1) translateY(0);
+    }
+    .modal-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      color: var(--muted2);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+    }
+    .modal-close:hover,
+    .modal-close:focus-visible {
+      color: var(--text);
+      background: rgba(255,255,255,0.09);
+      transform: translateY(-1px);
+    }
+    .modal-shell {
+      position: relative;
+    }
+    .modal-kicker {
+      color: var(--gold-light);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .modal h3 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .modal-sub {
+      color: var(--muted2);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 440px;
+    }
+    .modal-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .modal-list li {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.5;
+      padding: 14px 14px 14px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+    }
+    .modal-primary-link {
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 22px;
+      color: #100d07;
+      font-size: 1rem;
+      font-weight: 900;
+      background: var(--gradient);
+      border-radius: 10px;
+      box-shadow: 0 20px 38px rgba(216,173,79,0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .modal-primary-link:hover,
+    .modal-primary-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 48px rgba(216,173,79,0.26);
+    }
+    .modal-limited {
+      margin-top: 14px;
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .modal-footnote {
+      margin-top: 16px;
+      color: rgba(247,243,234,0.54);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     footer {
@@ -600,180 +552,60 @@
       gap: 14px;
       color: var(--muted);
     }
-
-    .footer-logo {
-      font-size: 0.98rem;
-      font-weight: 900;
-      color: var(--text);
-    }
-
-    footer p {
-      font-size: 0.82rem;
-    }
+    .footer-logo { font-size: 0.98rem; font-weight: 900; color: var(--text); }
+    footer p { font-size: 0.82rem; }
 
     @media (max-width: 980px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 48px;
-        padding-top: 112px;
-      }
-
-      .hero h1 {
-        font-size: 4.4rem;
-      }
-
-      .hero-visual {
-        min-height: 560px;
-      }
-
-      .section-title,
-      .positioning h2,
-      .value-panel h2,
-      .audience h2,
-      .cta-wrap h2 {
-        font-size: 3.1rem;
-      }
-
-      .positioning,
-      .value-panel,
-      .audience {
-        grid-template-columns: 1fr;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        max-width: 560px;
-        margin: 0 auto;
-      }
-
-      .feature-img-wrap {
-        height: 460px;
-      }
-
-      .how-steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; gap: 48px; padding-top: 112px; }
+      .hero h1 { font-size: 4.4rem; }
+      .hero-visual { min-height: 560px; }
+      .section-title, .positioning h2, .value-panel h2, .audience h2, .cta-wrap h2 { font-size: 3.1rem; }
+      .positioning, .value-panel, .audience { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+      .feature-img-wrap { height: 460px; }
     }
 
     @media (max-width: 680px) {
-      nav {
-        top: 10px;
-        width: min(calc(100% - 24px), var(--max));
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .shell {
-        width: min(calc(100% - 28px), var(--max));
-      }
-
-      .hero {
-        padding: 96px 0 58px;
-      }
-
-      .hero h1 {
-        font-size: 3.2rem;
-      }
-
-      .hero-sub {
-        font-size: 1.05rem;
-      }
-
-      .email-form {
-        display: grid;
-        padding: 8px;
-      }
-
-      .email-form input[type="email"],
-      .email-form button {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 470px;
-      }
-
-      .phone-frame {
-        width: min(78vw, 320px);
-        border-radius: 32px;
-      }
-
-      .section {
-        padding: 78px 0;
-      }
-
-      .section-title,
-      .positioning h2,
-      .value-panel h2,
-      .audience h2,
-      .cta-wrap h2 {
-        font-size: 2.45rem;
-      }
-
-      .value-panel {
-        padding: 26px;
-      }
-
-      .feature-img-wrap {
-        height: 380px;
-      }
-
-      .audience-list li {
-        font-size: 1.22rem;
-      }
-
-      .how-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .how-step {
-        min-height: 152px;
-      }
-
-      .how-step-num {
-        margin-bottom: 38px;
-      }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
+      nav { top: 10px; width: min(calc(100% - 24px), var(--max)); }
+      .nav-cta { display: none; }
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .hero { padding: 96px 0 58px; }
+      .hero h1 { font-size: 3.2rem; }
+      .hero-sub { font-size: 1.05rem; }
+      .hero-cta-group { width: 100%; }
+      .email-form { display: grid; padding: 8px; }
+      .email-form input[type="email"], .email-form button { width: 100%; }
+      .hero-visual { min-height: 470px; }
+      .phone-frame { width: min(78vw, 320px); border-radius: 32px; }
+      .section { padding: 78px 0; }
+      .section-title, .positioning h2, .value-panel h2, .audience h2, .cta-wrap h2 { font-size: 2.45rem; }
+      .value-panel { padding: 26px; }
+      .feature-img-wrap { height: 380px; }
+      .audience-list li { font-size: 1.22rem; }
+      .rank-wrap { padding: 84px 0 76px; }
+      .rank-image { max-width: 100%; margin: 28px auto 20px; }
+      .rank-support { font-size: 0.94rem; }
+      .cta-actions { flex-direction: column; }
+      .cta-button { width: 100%; }
+      .modal-overlay { padding: 16px; }
+      .modal { padding: 24px 18px 22px; }
+      .modal h3 { font-size: 2rem; }
+      footer { flex-direction: column; text-align: center; }
     }
 
     @media (max-width: 420px) {
-      .hero h1 {
-        font-size: 2.85rem;
-      }
-
-      .section-title,
-      .positioning h2,
-      .value-panel h2,
-      .audience h2,
-      .cta-wrap h2 {
-        font-size: 2.1rem;
-      }
-
-      .feature-img-wrap {
-        height: 330px;
-      }
+      .hero h1 { font-size: 2.85rem; }
+      .section-title, .positioning h2, .value-panel h2, .audience h2, .cta-wrap h2 { font-size: 2.1rem; }
+      .feature-img-wrap { height: 330px; }
     }
   </style>
 </head>
-
 <body>
   <nav>
-    <a class="nav-logo" href="#top">Social Ascend</a>
+    <a class="nav-logo" href="#top"><img class="brand-logo" src="assets/Logo.png" alt="Social Ascend logo" /><span>Social Ascend</span></a>
     <div class="nav-links" aria-label="Page sections">
-      <a href="#why">Why it works</a>
       <a href="#features">Features</a>
-      <a href="#how">How it works</a>
     </div>
     <a class="nav-cta" href="#signup">Get Early Access</a>
   </nav>
@@ -785,58 +617,27 @@
         <h1>Build real confidence in real life.</h1>
         <p class="hero-sub">Stop overthinking what to say. Train confidence through real-world actions, guided reps, and AI support when you need it.</p>
 
-        <form class="email-form" id="heroForm" name="waitlist" method="POST"
-          data-netlify="true" netlify-honeypot="bot-field"
-          onsubmit="handleSubmit(event, &quot;heroSuccess&quot;)">
-          <input type="hidden" name="form-name" value="waitlist" />
-          <input type="text" name="bot-field" style="display:none" />
-          <input type="email" name="email" placeholder="Enter your email" required />
-          <button type="submit">Get Early Access</button>
-        </form>
-
-        <div class="form-success" id="heroSuccess">You are on the list. We will be in touch.</div>
-        <p class="form-note">Free early access. No spam.</p>
+        <div class="hero-cta-group">
+          <div class="cta-actions">
+            <button type="button" class="cta-button cta-button-secondary" data-waitlist-toggle aria-controls="heroWaitlistPanel" aria-expanded="false">Join Waitlist</button>
+            <button type="button" class="cta-button cta-button-primary" data-open-modal="earlyAdopterModal">Early Adopter</button>
+          </div>
+          <div class="cta-form-wrap" id="heroWaitlistPanel" aria-hidden="true">
+            <form class="email-form" id="heroForm" name="waitlist" method="POST"
+              action="https://formspree.io/f/mwvwgpzz"
+              data-formspree data-success-target="heroSuccess">
+              <input type="email" name="email" placeholder="Enter your email" required />
+              <button type="submit">Join Waitlist</button>
+            </form>
+            <div class="form-success" id="heroSuccess">You're on the list. Early access coming soon.</div>
+            <p class="form-note">Free early access. No spam.</p>
+          </div>
+        </div>
       </div>
 
       <div class="hero-visual" aria-label="Social Ascend daily mission and progress preview">
         <div class="phone-frame">
           <img src="assets/ascend-screen.png" alt="Social Ascend daily mission and progress screen" class="hero-phone" />
-        </div>
-      </div>
-    </section>
-
-    <section class="positioning-wrap" id="why">
-      <div class="positioning shell section">
-        <h2>Most apps keep you in your head.</h2>
-        <div class="positioning-copy">
-          <p>They help you think harder, rewrite messages, and analyze every move. Useful sometimes, but thinking alone does not create confidence.</p>
-          <p><strong>Social Ascend is action-based.</strong> It gives you clear reps, practical frameworks, and support when you need it, so confidence becomes something you practice in the real world.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell">
-      <div class="value-panel">
-        <div>
-          <p class="eyebrow">Core system</p>
-          <h2>Confidence is not learned by thinking. It is built through reps.</h2>
-        </div>
-
-        <div class="value-list">
-          <div class="value-item">
-            <h3>Real-world actions</h3>
-            <p>Daily prompts that get you out of your head and into actual social reps.</p>
-          </div>
-
-          <div class="value-item">
-            <h3>Proven frameworks</h3>
-            <p>Simple mental models for texting, dating, conversations, and everyday confidence.</p>
-          </div>
-
-          <div class="value-item">
-            <h3>AI guidance</h3>
-            <p>Support for stuck moments, so you can respond better and learn the reasoning behind it.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -886,44 +687,50 @@
       </div>
     </section>
 
+    <section class="section shell">
+      <div class="value-panel">
+        <div>
+          <p class="eyebrow">Core system</p>
+          <h2>Confidence is not learned by thinking. It is built through reps.</h2>
+        </div>
+        <div class="value-list">
+          <div class="value-item">
+            <h3>Real-world actions</h3>
+            <p>Daily prompts that get you out of your head and into actual social reps.</p>
+          </div>
+          <div class="value-item">
+            <h3>Proven frameworks</h3>
+            <p>Simple mental models for texting, dating, conversations, and everyday confidence.</p>
+          </div>
+          <div class="value-item">
+            <h3>AI guidance</h3>
+            <p>Support for stuck moments, so you can respond better and learn the reasoning behind it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <section class="audience-wrap">
       <div class="audience shell section">
-        <h2>Built for people who:</h2>
+        <h2>Real-world confidence</h2>
         <ul class="audience-list">
-          <li>Overthink what to say</li>
-          <li>Feel confident in their head, but not in real life</li>
-          <li>Want to become naturally confident - not fake it</li>
+          <li>Know exactly what to say in any situation</li>
+          <li>Stop overthinking and start taking action</li>
+          <li>Build real confidence through daily reps</li>
+          <li>Develop skills that carry with you for life</li>
         </ul>
       </div>
     </section>
 
-    <section class="how-wrap" id="how">
-      <div class="section shell">
+    <section class="rank-wrap fade-up">
+      <div class="rank-inner shell">
         <div class="section-header center">
-          <h2 class="section-title">How it works</h2>
+          <h2 class="section-title">Level Up Your Social Confidence</h2>
+          <p class="section-sub">Earn XP. Climb the ranks. Become more confident in real life.</p>
         </div>
-
-        <div class="how-steps">
-          <div class="how-step">
-            <div class="how-step-num">1</div>
-            <p class="how-step-text">Get guidance</p>
-          </div>
-
-          <div class="how-step">
-            <div class="how-step-num">2</div>
-            <p class="how-step-text">Take real action</p>
-          </div>
-
-          <div class="how-step">
-            <div class="how-step-num">3</div>
-            <p class="how-step-text">Build confidence through reps</p>
-          </div>
-
-          <div class="how-step">
-            <div class="how-step-num">4</div>
-            <p class="how-step-text">Level up</p>
-          </div>
-        </div>
+        <img class="rank-image" src="assets/rank-progression.png" alt="Rank progression from Bronze to Elite through XP" />
+        <p class="rank-support">Every action earns XP. Every XP moves you forward.</p>
       </div>
     </section>
 
@@ -931,49 +738,190 @@
       <div class="cta-inner shell">
         <h2>Real confidence is built. Not born.</h2>
         <p>Train it daily with action, guidance, and real-world reps.</p>
-
-        <div class="cta-form-wrap">
+        <div class="cta-actions">
+          <button type="button" class="cta-button cta-button-secondary" data-waitlist-toggle aria-controls="bottomWaitlistPanel" aria-expanded="false">Join Waitlist</button>
+          <button type="button" class="cta-button cta-button-primary" data-open-modal="earlyAdopterModal">Early Adopter</button>
+        </div>
+        <p class="cta-meta">Choose your path. Join the list or lock in founding access.</p>
+        <div class="cta-form-wrap" id="bottomWaitlistPanel" aria-hidden="true">
           <form class="email-form" id="bottomForm" name="waitlist-bottom" method="POST"
-            data-netlify="true" netlify-honeypot="bot-field"
-            onsubmit="handleSubmit(event, &quot;bottomSuccess&quot;)">
-            <input type="hidden" name="form-name" value="waitlist-bottom" />
-            <input type="text" name="bot-field" style="display:none" />
+            action="https://formspree.io/f/mwvwgpzz"
+            data-formspree data-success-target="bottomSuccess">
             <input type="email" name="email" placeholder="Enter your email" required />
-            <button type="submit">Get Early Access</button>
+            <button type="submit">Join Waitlist</button>
           </form>
-
-          <div class="form-success" id="bottomSuccess">You are on the list. We will be in touch.</div>
+          <div class="form-success" id="bottomSuccess">You're on the list. Early access coming soon.</div>
           <p class="form-note">Free early access. No spam.</p>
         </div>
       </div>
     </section>
+
+    <div class="modal-overlay" id="earlyAdopterModal" aria-hidden="true">
+      <div class="modal-shell">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="earlyAdopterTitle" aria-describedby="earlyAdopterDescription" tabindex="-1">
+          <button type="button" class="modal-close" aria-label="Close early adopter offer" data-close-modal>&times;</button>
+          <p class="modal-kicker">Founding offer</p>
+          <h3 id="earlyAdopterTitle">Unlock Lifetime Access</h3>
+          <p class="modal-sub" id="earlyAdopterDescription">Be one of the first members of Social Ascend and lock in founding access before launch.</p>
+          <ul class="modal-list">
+            <li>🚀 Early access before public launch</li>
+            <li>🔒 Lifetime founding member status</li>
+            <li>🧠 AI social coach for texting, dating, and real-life situations</li>
+            <li>📈 Daily challenges to build real confidence</li>
+            <li>🎯 Help shape the product from day one</li>
+            <li>✅ Cancel anytime before launch for a full refund</li>
+          </ul>
+          <a class="modal-primary-link" href="https://buy.stripe.com/14A5kD8z8cBg57615vfYY00" target="_blank" rel="noreferrer noopener">Become an Early Adopter - $10</a>
+          <p class="modal-limited">Limited founding spots available</p>
+          <p class="modal-footnote">You'll also stay on the early access list and receive updates.</p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <span class="footer-logo">Social Ascend</span>
+    <span class="footer-logo footer-logo-wrap"><img class="footer-logo-image" src="assets/Logo.png" alt="Social Ascend logo" /><span>Social Ascend</span></span>
     <p>The gym for your social life.</p>
     <p>&copy; 2026 Social Ascend</p>
   </footer>
 
   <script>
-    function handleSubmit(e, successId) {
-      e.preventDefault();
-      const form = e.target;
+    document.querySelectorAll("form[data-formspree]").forEach((form) => {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      })
-      .then(() => {
-        form.style.display = "none";
-        document.getElementById(successId).style.display = "block";
-      })
-      .catch(() => {
-        form.style.display = "none";
-        document.getElementById(successId).style.display = "block";
+        const successId = form.getAttribute("data-success-target");
+        const successMessage = document.getElementById(successId);
+        const submitButton = form.querySelector("button[type='submit']");
+
+        if (!successMessage || !submitButton) return;
+
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (response.ok) {
+            form.style.display = "none";
+            successMessage.style.display = "block";
+          } else {
+            submitButton.disabled = false;
+            successMessage.textContent = "Something went wrong. Please try again.";
+            successMessage.style.display = "block";
+          }
+        } catch (error) {
+          submitButton.disabled = false;
+          successMessage.textContent = "Something went wrong. Please try again.";
+          successMessage.style.display = "block";
+        }
       });
-    }
+    });
+
+    document.querySelectorAll("[data-waitlist-toggle]").forEach((toggle) => {
+      const targetId = toggle.getAttribute("aria-controls");
+      const panel = targetId ? document.getElementById(targetId) : null;
+      const emailInput = panel?.querySelector('input[name="email"]');
+
+      if (!panel) return;
+
+      toggle.addEventListener("click", () => {
+        const isVisible = panel.classList.toggle("is-visible");
+        panel.setAttribute("aria-hidden", String(!isVisible));
+        toggle.setAttribute("aria-expanded", String(isVisible));
+        if (isVisible && emailInput) {
+          emailInput.focus();
+        }
+      });
+    });
+
+    const modalOverlay = document.getElementById("earlyAdopterModal");
+    const modalDialog = modalOverlay?.querySelector(".modal");
+    const openModalButtons = document.querySelectorAll('[data-open-modal="earlyAdopterModal"]');
+    const closeModalButton = modalOverlay?.querySelector("[data-close-modal]");
+    let lastFocusedElement = null;
+
+    const getFocusableElements = () => {
+      if (!modalOverlay) return [];
+      return [...modalOverlay.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => !element.hasAttribute("hidden"));
+    };
+
+    const openModal = () => {
+      if (!modalOverlay || !modalDialog) return;
+      lastFocusedElement = document.activeElement;
+      modalOverlay.classList.add("is-open");
+      modalOverlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      const focusable = getFocusableElements();
+      (focusable[0] || modalDialog).focus();
+    };
+
+    const closeModal = () => {
+      if (!modalOverlay) return;
+      modalOverlay.classList.remove("is-open");
+      modalOverlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
+    };
+
+    openModalButtons.forEach((button) => button.addEventListener("click", openModal));
+    closeModalButton?.addEventListener("click", closeModal);
+
+    modalOverlay?.addEventListener("click", (event) => {
+      if (event.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!modalOverlay?.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+
+      if (event.key === "Tab") {
+        const focusable = getFocusableElements();
+        if (!focusable.length) {
+          event.preventDefault();
+          modalDialog?.focus();
+          return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    const fadeElements = document.querySelectorAll(".fade-up");
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    fadeElements.forEach((element) => fadeObserver.observe(element));
   </script>
 </body>
 </html>
