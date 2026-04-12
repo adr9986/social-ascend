@@ -268,6 +268,37 @@
     .value-item h3 { color: var(--gold-light); font-size: 0.86rem; text-transform: uppercase; font-weight: 900; margin-bottom: 8px; }
     .value-item p { color: var(--muted); font-size: 0.96rem; line-height: 1.65; }
 
+    .mission-wrap {
+      padding: 90px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+      border-block: 1px solid rgba(255,255,255,0.07);
+    }
+    .mission-panel {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 34px 32px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), var(--card);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      box-shadow: 0 24px 72px rgba(0,0,0,0.3);
+    }
+    .mission-kicker {
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .mission-panel p {
+      color: var(--muted2);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .mission-panel p + p {
+      margin-top: 18px;
+    }
+
     .features-wrap { background: var(--bg2); border-block: 1px solid rgba(255,255,255,0.07); }
     .features-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
     .feature-card {
@@ -604,6 +635,9 @@
       .section { padding: 78px 0; }
       .section-title, .positioning h2, .value-panel h2, .audience h2, .cta-wrap h2 { font-size: 2.45rem; }
       .value-panel { padding: 26px; }
+      .mission-wrap { padding: 72px 0; }
+      .mission-panel { padding: 24px 20px; }
+      .mission-panel p { font-size: 1rem; }
       .feature-img-wrap { height: 380px; }
       .audience-list li { font-size: 1.22rem; }
       .rank-wrap { padding: 84px 0 76px; }
@@ -733,6 +767,17 @@
       </div>
     </section>
 
+
+    <section class="mission-wrap fade-up">
+      <div class="shell">
+        <div class="mission-panel">
+          <p class="mission-kicker">Mission</p>
+          <p>We’re building Social Ascend because real-world confidence is being lost in a digital-first world.</p>
+          <p>Our AI helps you think better, respond smarter, and understand what works - but action is what actually builds confidence.</p>
+          <p>This is about taking small daily steps that compound into real, lasting change.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="audience-wrap">
       <div class="audience shell section">
