@@ -664,7 +664,6 @@
     <div class="nav-links" aria-label="Page sections">
       <a href="#features">Features</a>
     </div>
-    <button type="button" class="nav-side-action" data-open-modal="earlyAdopterModal">Early Adopter</button>
   </nav>
 
   <main id="top">
@@ -677,7 +676,6 @@
         <div class="hero-cta-group">
           <div class="cta-actions">
             <button type="button" class="cta-button cta-button-secondary" data-waitlist-toggle aria-controls="heroWaitlistPanel" aria-expanded="false">Join Waitlist</button>
-            <button type="button" class="cta-button cta-button-primary" data-open-modal="earlyAdopterModal">Early Adopter</button>
           </div>
           <div class="cta-form-wrap" id="heroWaitlistPanel" aria-hidden="true">
             <form class="email-form" id="heroForm" name="waitlist" method="POST"
@@ -808,9 +806,8 @@
         <p>Train it daily with action, guidance, and real-world reps.</p>
         <div class="cta-actions">
           <button type="button" class="cta-button cta-button-secondary" data-waitlist-toggle aria-controls="bottomWaitlistPanel" aria-expanded="false">Join Waitlist</button>
-          <button type="button" class="cta-button cta-button-primary" data-open-modal="earlyAdopterModal">Early Adopter</button>
         </div>
-        <p class="cta-meta">Choose your path. Join the list or lock in founding access.</p>
+        <p class="cta-meta">Join the list to hear when Social Ascend is ready.</p>
         <div class="cta-form-wrap" id="bottomWaitlistPanel" aria-hidden="true">
           <form class="email-form" id="bottomForm" name="waitlist-bottom" method="POST"
             action="https://formspree.io/f/mwvwgpzz"
@@ -823,28 +820,6 @@
         </div>
       </div>
     </section>
-
-    <div class="modal-overlay" id="earlyAdopterModal" aria-hidden="true">
-      <div class="modal-shell">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="earlyAdopterTitle" aria-describedby="earlyAdopterDescription" tabindex="-1">
-          <button type="button" class="modal-close" aria-label="Close early adopter offer" data-close-modal>&times;</button>
-          <p class="modal-kicker">Founding offer</p>
-          <h3 id="earlyAdopterTitle">Unlock Lifetime Access</h3>
-          <p class="modal-sub" id="earlyAdopterDescription">Be one of the first members of Social Ascend and lock in founding access before launch.</p>
-          <ul class="modal-list">
-            <li>🚀 Early access before public launch</li>
-            <li>🔒 Lifetime founding member status</li>
-            <li>🧠 AI social coach for texting, dating, and real-life situations</li>
-            <li>📈 Daily challenges to build real confidence</li>
-            <li>🎯 Help shape the product from day one</li>
-            <li>✅ Cancel anytime before launch for a full refund</li>
-          </ul>
-          <a class="modal-primary-link" href="https://buy.stripe.com/14A5kD8z8cBg57615vfYY00" target="_blank" rel="noreferrer noopener">Become an Early Adopter - $10</a>
-          <p class="modal-limited">Limited founding spots available</p>
-          <p class="modal-footnote">You'll also stay on the early access list and receive updates.</p>
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer>
@@ -906,77 +881,6 @@
           emailInput.focus();
         }
       });
-    });
-
-    const modalOverlay = document.getElementById("earlyAdopterModal");
-    const modalDialog = modalOverlay?.querySelector(".modal");
-    const openModalButtons = document.querySelectorAll('[data-open-modal="earlyAdopterModal"]');
-    const closeModalButton = modalOverlay?.querySelector("[data-close-modal]");
-    let lastFocusedElement = null;
-
-    const getFocusableElements = () => {
-      if (!modalOverlay) return [];
-      return [...modalOverlay.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')]
-        .filter((element) => !element.hasAttribute("hidden"));
-    };
-
-    const openModal = () => {
-      if (!modalOverlay || !modalDialog) return;
-      lastFocusedElement = document.activeElement;
-      modalOverlay.classList.add("is-open");
-      modalOverlay.setAttribute("aria-hidden", "false");
-      document.body.classList.add("modal-open");
-      const focusable = getFocusableElements();
-      (focusable[0] || modalDialog).focus();
-    };
-
-    const closeModal = () => {
-      if (!modalOverlay) return;
-      modalOverlay.classList.remove("is-open");
-      modalOverlay.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("modal-open");
-      if (lastFocusedElement instanceof HTMLElement) {
-        lastFocusedElement.focus();
-      }
-    };
-
-    openModalButtons.forEach((button) => button.addEventListener("click", openModal));
-    closeModalButton?.addEventListener("click", closeModal);
-
-    modalOverlay?.addEventListener("click", (event) => {
-      if (event.target === modalOverlay) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (!modalOverlay?.classList.contains("is-open")) return;
-
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeModal();
-        return;
-      }
-
-      if (event.key === "Tab") {
-        const focusable = getFocusableElements();
-        if (!focusable.length) {
-          event.preventDefault();
-          modalDialog?.focus();
-          return;
-        }
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first.focus();
-        }
-      }
     });
 
     const fadeElements = document.querySelectorAll(".fade-up");
